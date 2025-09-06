@@ -1,0 +1,1767 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>GIDDY FOREX ACADEMY - Professional Trading Education</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="Professional Forex Trading Education, Prop Firm Training" name="keywords" />
+    <meta content="Master forex trading with expert mentorship and proven strategies" name="description" />
+
+    <!-- Favicon -->
+    <link rel="icon" href="img/log.png" type="image/png" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+
+    <style>
+        :root {
+            --primary-color: #00d4aa;
+            --secondary-color: #1a1a2e;
+            --accent-color: #16213e;
+            --dark-bg: #0f0f23;
+            --light-gray: #f8fafc;
+            --text-dark: #2d3748;
+            --text-light: #718096;
+            --gradient-primary: linear-gradient(135deg, #00d4aa 0%, #00a693 100%);
+            --gradient-dark: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            --glass-bg: rgba(255, 255, 255, 0.1);
+            --glass-border: rgba(255, 255, 255, 0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+        /* Advanced Glassmorphism Navigation */
+        .navbar-glass {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar-brand {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+        }
+
+        .navbar-nav .nav-link {
+            font-weight: 500;
+            color: var(--text-dark);
+            margin: 0 15px;
+            padding: 8px 0;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .navbar-nav .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-primary);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        .navbar-nav .nav-link:hover::after,
+        .navbar-nav .nav-link.active::after {
+            width: 100%;
+        }
+
+        /* Hero Section with 3D Elements */
+        .hero-section {
+            min-height: 100vh;
+            background: var(--gradient-dark);
+            position: relative;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            padding-top: 80px;
+        }
+
+        .hero-bg-animation {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.1;
+            z-index: 1;
+        }
+
+        .floating-shapes {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .shape {
+            position: absolute;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            animation: float 20s infinite linear;
+        }
+
+        .shape:nth-child(1) { width: 80px; height: 80px; left: 10%; animation-delay: 0s; }
+        .shape:nth-child(2) { width: 120px; height: 120px; left: 20%; animation-delay: 2s; }
+        .shape:nth-child(3) { width: 60px; height: 60px; left: 70%; animation-delay: 4s; }
+        .shape:nth-child(4) { width: 100px; height: 100px; left: 80%; animation-delay: 6s; }
+
+        @keyframes float {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            color: white;
+        }
+
+        .hero-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #ffffff 0%, #00d4aa 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: slideInUp 1s ease-out;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            animation: slideInUp 1s ease-out 0.2s both;
+        }
+
+        .cta-button {
+            background: var(--gradient-primary);
+            border: none;
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 10px 30px rgba(0, 212, 170, 0.3);
+            animation: slideInUp 1s ease-out 0.4s both;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 212, 170, 0.4);
+            background: linear-gradient(135deg, #00a693 0%, #00d4aa 100%);
+        }
+
+        .hero-image {
+            animation: slideInRight 1s ease-out 0.6s both;
+        }
+
+        @keyframes slideInUp {
+            from { opacity: 0; transform: translateY(60px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideInRight {
+            from { opacity: 0; transform: translateX(60px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        /* About Section with Cards */
+        .about-section {
+            padding: 120px 0;
+            background: var(--light-gray);
+            position: relative;
+        }
+
+        .section-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .section-subtitle {
+            color: var(--primary-color);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(0, 212, 170, 0.1);
+            margin-bottom: 30px;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.15);
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--gradient-primary);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 2rem;
+            color: white;
+        }
+
+        /* Pricing Cards with Advanced Design */
+        .pricing-section {
+            padding: 120px 0;
+            background: var(--dark-bg);
+            color: white;
+        }
+
+        .pricing-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            padding: 40px 30px;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 30px;
+        }
+
+        .pricing-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-primary);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .pricing-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 30px 80px rgba(0, 212, 170, 0.2);
+        }
+
+        .pricing-card.featured {
+            background: rgba(0, 212, 170, 0.1);
+            border: 2px solid var(--primary-color);
+            transform: scale(1.05);
+        }
+
+        .price-circle {
+            width: 120px;
+            height: 120px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
+            box-shadow: 0 20px 40px rgba(0, 212, 170, 0.3);
+        }
+
+        .price-old {
+            text-decoration: line-through;
+            opacity: 0.6;
+            font-size: 1.2rem;
+        }
+
+        .price-new {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: white;
+        }
+
+        /* Signal Cards */
+        .signal-card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            margin-bottom: 30px;
+        }
+
+        .signal-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--primary-color);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Portfolio/Reviews with Masonry Effect */
+        .portfolio-section {
+            padding: 120px 0;
+            background: white;
+        }
+
+        .portfolio-item {
+            margin-bottom: 30px;
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+            background: white;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease;
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(0, 212, 170, 0.9), rgba(26, 26, 46, 0.9));
+            opacity: 0;
+            transition: all 0.4s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
+        }
+
+        /* Advanced Button Styles */
+        .btn-advanced {
+            background: var(--gradient-primary);
+            border: none;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-advanced::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .btn-advanced:hover::before {
+            left: 100%;
+        }
+
+        .btn-advanced:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 30px rgba(0, 212, 170, 0.4);
+        }
+
+        /* WhatsApp Chat Enhancement */
+        .whatsapp-chat {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--gradient-primary);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            cursor: pointer;
+            z-index: 999;
+            box-shadow: 0 10px 30px rgba(0, 212, 170, 0.4);
+            transition: all 0.3s ease;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(0, 212, 170, 0.7); }
+            70% { box-shadow: 0 0 0 20px rgba(0, 212, 170, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(0, 212, 170, 0); }
+        }
+
+        .whatsapp-chat:hover {
+            transform: scale(1.1);
+            animation: none;
+        }
+
+        .chat-box {
+            position: fixed;
+            bottom: 100px;
+            right: 30px;
+            width: 350px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+            display: none;
+            flex-direction: column;
+            z-index: 999;
+            overflow: hidden;
+        }
+
+        .chat-header {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 20px;
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .chat-body {
+            padding: 20px;
+            height: 250px;
+            overflow-y: auto;
+            background: #f8f9fa;
+        }
+
+        .chat-footer {
+            display: flex;
+            border-top: 1px solid #e9ecef;
+        }
+
+        .chat-footer input {
+            flex: 1;
+            padding: 15px;
+            border: none;
+            outline: none;
+            font-size: 14px;
+        }
+
+        .chat-footer button {
+            background: var(--gradient-primary);
+            color: white;
+            border: none;
+            padding: 15px 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        /* Social Join Buttons */
+        .join-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 60px 0;
+            flex-wrap: wrap;
+        }
+
+        .join-btn {
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .telegram-btn {
+            background: linear-gradient(135deg, #0088cc, #229ed9);
+            color: white;
+            box-shadow: 0 10px 30px rgba(0, 136, 204, 0.3);
+        }
+
+        .discord-btn {
+            background: linear-gradient(135deg, #5865f2, #7289da);
+            color: white;
+            box-shadow: 0 10px 30px rgba(88, 101, 242, 0.3);
+        }
+
+        .join-btn:hover {
+            transform: translateY(-5px);
+            color: white;
+            text-decoration: none;
+        }
+
+        /* Footer Enhancement */
+        .footer-section {
+            background: var(--gradient-dark);
+            color: white;
+            padding: 80px 0 40px;
+            position: relative;
+        }
+
+        .footer-widget h4 {
+            color: var(--primary-color);
+            margin-bottom: 25px;
+            font-weight: 600;
+        }
+
+        .social-links a {
+            width: 50px;
+            height: 50px;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: all 0.3s ease;
+            margin-right: 10px;
+        }
+
+        .social-links a:hover {
+            background: var(--primary-color);
+            transform: translateY(-3px);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .chat-box {
+                width: 300px;
+                right: 20px;
+            }
+            
+            .join-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        /* Loading Animation */
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--dark-bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+
+        .loading-spinner {
+            width: 60px;
+            height: 60px;
+            border: 4px solid rgba(0, 212, 170, 0.2);
+            border-top: 4px solid var(--primary-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Scroll Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Video Container */
+        .video-container {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+        }
+
+        .video-container iframe {
+            border-radius: 20px;
+        }
+
+        /* Stats Counter */
+        .stats-section {
+            background: var(--primary-color);
+            padding: 60px 0;
+            color: white;
+        }
+
+        .stat-item {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Loading Screen -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-spinner"></div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-glass py-3">
+        <div class="container">
+            <a href="index.html" class="navbar-brand d-flex align-items-center">
+                <img src="img/log.png" alt="Giddy Forex Logo" style="height: 50px; margin-right: 15px;">
+                <span class="text-dark">Giddy <span style="color: var(--primary-color);">Forex</span> Academy</span>
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav ml-auto">
+                    <a href="#home" class="nav-item nav-link active">Home</a>
+                    <a href="#about" class="nav-item nav-link">About</a>
+                    <a href="#mentorship" class="nav-item nav-link">Mentorship</a>
+                    <a href="#signals" class="nav-item nav-link">Signals</a>
+                    <a href="#reviews" class="nav-item nav-link">Reviews</a>
+                </div>
+                
+                <div class="d-none d-lg-flex align-items-center ml-4">
+                    <a href="https://wa.me/256774482267" target="_blank" class="btn btn-advanced">
+                        <i class="fab fa-whatsapp mr-2"></i>WhatsApp Us
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="floating-shapes">
+            <div class="shape"></div>
+            <div class="shape"></div>
+            <div class="shape"></div>
+            <div class="shape"></div>
+        </div>
+        
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 hero-content">
+                    <h1 class="hero-title">Master Forex Trading Like a Pro</h1>
+                    <p class="hero-subtitle">
+                        Transform your trading journey with expert mentorship, proven strategies, and consistent profit withdrawal from prop firms.
+                    </p>
+                    <button class="btn cta-button" onclick="document.getElementById('mentorship').scrollIntoView({behavior: 'smooth'})">
+                        Start Your Journey
+                    </button>
+                </div>
+                
+                <div class="col-lg-6 hero-image">
+                    <div class="video-container">
+                        <iframe width="100%" height="350" src="https://www.youtube.com/embed/e1qizbSMZpA"
+                            frameborder="0" allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 stat-item fade-in">
+                    <div class="stat-number" data-count="500">0</div>
+                    <div class="stat-label">Students Trained</div>
+                </div>
+                <div class="col-md-3 stat-item fade-in">
+                    <div class="stat-number" data-count="80">0</div>
+                    <div class="stat-label">% Success Rate</div>
+                </div>
+                <div class="col-md-3 stat-item fade-in">
+                    <div class="stat-number" data-count="1000">0</div>
+                    <div class="stat-label">+ Profitable Trades</div>
+                </div>
+                <div class="col-md-3 stat-item fade-in">
+                    <div class="stat-number" data-count="24">0</div>
+                    <div class="stat-label">/7 Support</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 fade-in">
+                    <img class="img-fluid rounded" src="img/other/about2.jpeg" alt="Giddy Forex Academy" style="border-radius: 20px; box-shadow: 0 20px 50px rgba(0,0,0,0.1);">
+                </div>
+                <div class="col-lg-6 fade-in">
+                    <p class="section-subtitle">About Our Academy</p>
+                    <h2 class="section-title">Helping You Pass Prop Firm Challenges</h2>
+                    <p class="mb-4" style="font-size: 1.1rem; color: var(--text-light);">
+                        Welcome to Giddy Forex Academy — your ultimate destination for mastering the Forex market. 
+                        We help aspiring traders unlock funded accounts with consistent profitability. Founded by a 
+                        self-taught, consistently profitable trader, our academy is built on real-world experience and 
+                        proven strategies for Prop Firms.
+                    </p>
+                    
+                    <div class="row mt-4">
+                        <div class="col-md-6 mb-3">
+                            <div class="feature-card">
+                                <div class="feature-icon">
+                                    <i class="fas fa-chart-line"></i>
+                                </div>
+                                <h5>Proven Strategies</h5>
+                                <p>Battle-tested methods that consistently deliver results</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="feature-card">
+                                <div class="feature-icon">
+                                    <i class="fas fa-users"></i>
+                                </div>
+                                <h5>Expert Mentorship</h5>
+                                <p>Learn from profitable traders with real market experience</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mentorship Packages -->
+    <section id="mentorship" class="pricing-section">
+        <div class="container">
+            <div class="text-center mb-5 fade-in">
+                <p class="section-subtitle text-white">Choose Your Path</p>
+                <h2 class="section-title text-white">Mentorship Packages</h2>
+                <p class="text-light">Structured learning paths designed to take you from beginner to funded trader</p>
+            </div>
+            
+            <div class="row justify-content-center">
+                <!-- Essential Plan -->
+                <div class="col-lg-4 mb-4 fade-in">
+                    <div class="pricing-card">
+                        <h3 class="text-uppercase mb-3">Essential</h3>
+                        <p class="text-light mb-4">Perfect for Beginners</p>
+                        
+                        <div class="price-circle">
+                            <div class="text-center">
+                                <div class="price-old">$100</div>
+                                <div class="price-new">$80</div>
+                                <small>/Month</small>
+                            </div>
+                        </div>
+                        
+                        <ul class="list-unstyled mb-4">
+                            <li class="mb-2"><i class="fas fa-check text-success mr-2"></i>2 Live Zoom Sessions/Week (1hr)</li>
+                            <li class="mb-2"><i class="fas fa-check text-success mr-2"></i>Forex Basics, S&D Strategy</li>
+                            <li class="mb-2"><i class="fas fa-check text-success mr-2"></i>Market Structure & Liquidity</li>
+                            <li class="mb-2"><i class="fas fa-check text-success mr-2"></i>Risk Management</li>
+                            <li class="mb-2"><i class="fas fa-check text-success mr-2"></i>Telegram Group + Recordings</li>
+                        </ul>
+                        
+                        <a href="https://selar.com/89v1y5" class="btn btn-advanced w-100" target="_blank">
+                            Enroll Now
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Deluxe Plan -->
+                <div class="col-lg-4 mb-4 fade-in">
+                    <div class="pricing-card featured">
+                        <div class="badge badge-success mb-3">Most Popular</div>
+                        <h3 class="text-uppercase mb-3">Deluxe</h3>
+                        <p class="text-light mb-4">Advanced Training</p>
+                        
+                        <div class="price-circle">
+                            <div class="text-center">
+                                <div class="price-old">$200</div>
+                                <div class="price-new">$130</div>
+                                <small>/Month</small>
+                            </div>
+                        </div>
+                        
+                        <ul class="list-unstyled mb-4">
+                            <li class="mb-2"><i class="fas fa-check text-success mr-2"></i>2 Live Sessions/Week (1.5hr)</li>
+                            <li class="mb-2"><i class="fas fa-check text-success mr-2"></i>Everything in Essential +</li>
+                            <li class="mb-2"><i class="fas fa-check text-success mr-2"></i>Advanced S&D + Trade Journaling</li>
+                            <li class="mb-2"><i class="fas fa-check text-success mr-2"></i>Prop Firm Prep + Trade Feedback</li>
+                            <li class="mb-2"><i class="fas fa-check text-success mr-2"></i>Downloadable Session Recordings</li>
+                        </ul>
+                        
+                        <a href="https://selar.com/144837" class="btn btn-advanced w-100" target="_blank">
+                            Enroll Now
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Premium Plan -->
+                <div class="col-lg-4 mb-4 fade-in">
+                    <div class="pricing-card">
+                        <h3 class="text-uppercase mb-3">Premium</h3>
+                        <p class="text-light mb-4">For Dedicated Traders</p>
+                        
+                        <div class="price-circle">
+                            <div class="text-center">
+                                <div class="price-old">$300</div>
+                                <div class="price-new">$170</div>
+                                <small>/Month</small>
+                            </div>
+                        </div>
+                        
+                        <ul class="list-unstyled mb-4">
+                            <li class="mb-2"><i class="fas fa-check text-success mr-2"></i>2 Intensive Sessions/Week (2hrs)</li>
+                            <li class="mb-2"><i class="fas fa-check text-success mr-2"></i>1-on-1 Mentorship + Live Trades</li>
+                            <li class="mb-2"><i class="fas fa-check text-success mr-2"></i>Advanced Liquidity & Mindset</li>
+                            <li class="mb-2"><i class="fas fa-check text-success mr-2"></i>Funding Strategy & Giveaways</li>
+                            <li class="mb-2"><i class="fas fa-check text-success mr-2"></i>Lifetime Access to Materials</li>
+                        </ul>
+                        
+                        <a href="https://selar.com/r05848" class="btn btn-advanced w-100" target="_blank">
+                            Enroll Now
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Signals Packages -->
+    <section id="signals" class="about-section">
+        <div class="container">
+            <div class="text-center mb-5 fade-in">
+                <p class="section-subtitle">Trading Signals</p>
+                <h2 class="section-title">Signal Packages</h2>
+                <p class="text-muted">High-accuracy signals with detailed trade management</p>
+            </div>
+            
+            <div class="row justify-content-center">
+                <div class="col-md-4 mb-4 fade-in">
+                    <div class="signal-card">
+                        <h4 class="text-uppercase text-center mb-3" style="color: var(--primary-color);">Essential</h4>
+                        <div class="text-center mb-4">
+                            <h2 class="text-dark">$32.5</h2>
+                            <p class="text-muted">1 Month Access</p>
+                        </div>
+                        
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><i class="fas fa-chart-line text-success mr-2"></i>1 Daily Signal (Gold Focus)</li>
+                            <li class="mb-2"><i class="fas fa-target text-success mr-2"></i>80% Win Rate</li>
+                            <li class="mb-2"><i class="fas fa-calculator text-success mr-2"></i>Lot Size Guide</li>
+                            <li class="mb-2"><i class="fas fa-sign-in-alt text-success mr-2"></i>Entry and Exit Points</li>
+                            <li class="mb-2"><i class="fas fa-cogs text-success mr-2"></i>Trade Management</li>
+                            <li class="mb-2"><i class="fas fa-shield-alt text-success mr-2"></i>Risk 1% for 2% Gain</li>
+                            <li class="mb-2"><i class="fas fa-camera text-success mr-2"></i>Before & After Trades</li>
+                        </ul>
+                        
+                        <a href="https://selar.com/61418b" class="btn btn-advanced w-100 mt-3" target="_blank">
+                            Get Signals
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-4 fade-in">
+                    <div class="signal-card" style="border: 2px solid var(--primary-color); transform: scale(1.05);">
+                        <div class="badge badge-success mb-3">Best Value</div>
+                        <h4 class="text-uppercase text-center mb-3" style="color: var(--primary-color);">Deluxe</h4>
+                        <div class="text-center mb-4">
+                            <h2 class="text-dark">$50</h2>
+                            <p class="text-muted">2 Months Access</p>
+                        </div>
+                        
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><i class="fas fa-chart-line text-success mr-2"></i>Multiple Daily Signals</li>
+                            <li class="mb-2"><i class="fas fa-target text-success mr-2"></i>80% Win Rate</li>
+                            <li class="mb-2"><i class="fas fa-calculator text-success mr-2"></i>Lot Size Guide</li>
+                            <li class="mb-2"><i class="fas fa-sign-in-alt text-success mr-2"></i>Entry and Exit Points</li>
+                            <li class="mb-2"><i class="fas fa-cogs text-success mr-2"></i>Trade Management</li>
+                            <li class="mb-2"><i class="fas fa-shield-alt text-success mr-2"></i>Risk 1% for 2% Gain</li>
+                            <li class="mb-2"><i class="fas fa-camera text-success mr-2"></i>Before & After Trades</li>
+                        </ul>
+                        
+                        <a href="https://selar.com/y84845" class="btn btn-advanced w-100 mt-3" target="_blank">
+                            Get Signals
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-4 fade-in">
+                    <div class="signal-card">
+                        <h4 class="text-uppercase text-center mb-3" style="color: var(--primary-color);">Premium</h4>
+                        <div class="text-center mb-4">
+                            <h2 class="text-dark">$80</h2>
+                            <p class="text-muted">3 Months Access</p>
+                        </div>
+                        
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><i class="fas fa-chart-line text-success mr-2"></i>Premium Signal Package</li>
+                            <li class="mb-2"><i class="fas fa-target text-success mr-2"></i>80% Win Rate</li>
+                            <li class="mb-2"><i class="fas fa-calculator text-success mr-2"></i>Lot Size Guide</li>
+                            <li class="mb-2"><i class="fas fa-sign-in-alt text-success mr-2"></i>Entry and Exit Points</li>
+                            <li class="mb-2"><i class="fas fa-cogs text-success mr-2"></i>Advanced Trade Management</li>
+                            <li class="mb-2"><i class="fas fa-shield-alt text-success mr-2"></i>Risk 1% for 2% Gain</li>
+                            <li class="mb-2"><i class="fas fa-camera text-success mr-2"></i>Before & After Trades</li>
+                        </ul>
+                        
+                        <a href="https://selar.com/po76e3" class="btn btn-advanced w-100 mt-3" target="_blank">
+                            Get Signals
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews/Portfolio Section -->
+    <section id="reviews" class="portfolio-section">
+        <div class="container">
+            <div class="text-center mb-5 fade-in">
+                <p class="section-subtitle">Success Stories</p>
+                <h2 class="section-title">Client Reviews & Results</h2>
+                <p class="text-muted">See how our students are achieving consistent profitability</p>
+            </div>
+            
+            <div class="text-center mb-5 fade-in">
+                <div class="btn-group" role="group">
+                    <button class="btn btn-outline-primary active" data-filter="*">
+                        <i class="fa fa-star mr-2"></i>All Reviews
+                    </button>
+                    <button class="btn btn-outline-primary" data-filter=".mentorship">
+                        <i class="fa fa-users mr-2"></i>Mentorship
+                    </button>
+                    <button class="btn btn-outline-primary" data-filter=".signals">
+                        <i class="fa fa-signal mr-2"></i>Signals
+                    </button>
+                </div>
+            </div>
+            
+            <div class="row portfolio-container">
+                <div class="col-lg-4 col-md-6 mb-4 portfolio-item mentorship fade-in">
+                    <div class="position-relative">
+                        <img class="img-fluid w-100" src="img/reviews/cer.jpeg" alt="Mentorship Client Result" style="height: 300px; object-fit: cover; border-radius: 20px;">
+                        <div class="portfolio-overlay">
+                            <a href="img/reviews/cer.jpeg" class="btn btn-light btn-lg rounded-circle">
+                                <i class="fa fa-plus"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 mb-4 portfolio-item mentorship fade-in">
+                    <div class="position-relative">
+                        <img class="img-fluid w-100" src="img/reviews/pay1.jpeg" alt="Mentorship Session" style="height: 300px; object-fit: cover; border-radius: 20px;">
+                        <div class="portfolio-overlay">
+                            <a href="img/reviews/pay1.jpeg" class="btn btn-light btn-lg rounded-circle">
+                                <i class="fa fa-plus"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 mb-4 portfolio-item signals fade-in">
+                    <div class="position-relative">
+                        <img class="img-fluid w-100" src="img/reviews/jo.jpeg" alt="Signal Win Rate" style="height: 300px; object-fit: cover; border-radius: 20px;">
+                        <div class="portfolio-overlay">
+                            <a href="img/reviews/jo.jpeg" class="btn btn-light btn-lg rounded-circle">
+                                <i class="fa fa-plus"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 mb-4 portfolio-item signals fade-in">
+                    <div class="position-relative">
+                        <img class="img-fluid w-100" src="img/reviews/vip3.jpeg" alt="Trading Signal Setup" style="height: 300px; object-fit: cover; border-radius: 20px;">
+                        <div class="portfolio-overlay">
+                            <a href="img/reviews/vip3.jpeg" class="btn btn-light btn-lg rounded-circle">
+                                <i class="fa fa-plus"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 mb-4 portfolio-item mentorship fade-in">
+                    <div class="position-relative">
+                        <img class="img-fluid w-100" src="img/reviews/vip2.jpeg" alt="Client Growth" style="height: 300px; object-fit: cover; border-radius: 20px;">
+                        <div class="portfolio-overlay">
+                            <a href="img/reviews/vip2.jpeg" class="btn btn-light btn-lg rounded-circle">
+                                <i class="fa fa-plus"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 mb-4 portfolio-item signals fade-in">
+                    <div class="position-relative">
+                        <img class="img-fluid w-100" src="img/reviews/vip.jpeg" alt="Funded Challenge Pass" style="height: 300px; object-fit: cover; border-radius: 20px;">
+                        <div class="portfolio-overlay">
+                            <a href="img/reviews/vip.jpeg" class="btn btn-light btn-lg rounded-circle">
+                                <i class="fa fa-plus"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community Section -->
+    <section class="py-5" style="background: var(--light-gray);">
+        <div class="container">
+            <div class="text-center mb-5 fade-in">
+                <p class="section-subtitle">Join Our Community</p>
+                <h2 class="section-title">Connect With Fellow Traders</h2>
+                <p class="text-muted">Get instant updates, market insights, and connect with successful traders</p>
+            </div>
+            
+            <div class="join-buttons fade-in">
+                <a href="https://t.me/blendergiddy" target="_blank" class="join-btn telegram-btn">
+                    <i class="fab fa-telegram"></i> Join Free Telegram Channel
+                </a>
+                <a href="https://discord.gg/CDYqGgx4Gu" target="_blank" class="join-btn discord-btn">
+                    <i class="fab fa-discord"></i> Join Our Discord Server
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enhanced WhatsApp Chat -->
+    <div class="whatsapp-chat" id="whatsappButton">
+        <i class="fab fa-whatsapp"></i>
+    </div>
+
+    <div class="chat-box" id="chatBox">
+        <div class="chat-header">
+            <div class="d-flex align-items-center">
+                <img src="img/log.png" alt="Logo" style="width: 30px; height: 30px; border-radius: 50%; margin-right: 10px;">
+                <span>Giddy Forex Support</span>
+            </div>
+            <button id="closeChat" style="background: none; border: none; color: white; font-size: 20px;">&times;</button>
+        </div>
+        <div class="chat-body">
+            <div class="mb-3">
+                <div class="p-3 rounded" style="background: #e3f2fd; border-radius: 15px 15px 15px 5px;">
+                    <p class="mb-1"><strong>Giddy Forex Team</strong></p>
+                    <p class="mb-0">Hello! 👋 How can we help you today?</p>
+                </div>
+            </div>
+            <div class="mb-3">
+                <div class="p-3 rounded" style="background: #e8f5e8; border-radius: 15px 15px 15px 5px;">
+                    <p class="mb-0">Choose from our quick options or type your message:</p>
+                </div>
+            </div>
+            <div class="quick-replies">
+                <button class="btn btn-sm btn-outline-primary mb-2 w-100 quick-reply" data-message="I want to know more about mentorship packages">
+                    📚 Mentorship Info
+                </button>
+                <button class="btn btn-sm btn-outline-primary mb-2 w-100 quick-reply" data-message="Tell me about your trading signals">
+                    📈 Signal Packages
+                </button>
+                <button class="btn btn-sm btn-outline-primary mb-2 w-100 quick-reply" data-message="I want to schedule a consultation">
+                    💬 Free Consultation
+                </button>
+            </div>
+        </div>
+        <div class="chat-footer">
+            <input type="text" id="chatInput" placeholder="Type your message..." />
+            <button id="sendChat">
+                <i class="fas fa-paper-plane"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-5 fade-in">
+                    <div class="footer-widget">
+                        <div class="d-flex align-items-center mb-4">
+                            <img src="img/log.png" alt="Giddy Forex Logo" style="height: 50px; margin-right: 15px;">
+                            <h4 class="m-0">Giddy <span style="color: var(--primary-color);">Forex</span> Academy</h4>
+                        </div>
+                        <p class="mb-4">Empowering aspiring traders with the skills, mindset, and discipline to succeed in the forex market and achieve financial freedom.</p>
+                        <div class="social-links d-flex">
+                            <a href="https://www.instagram.com/giddyforex?igsh=MWV2MGZsOGh1b2Nidw==" target="_blank">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="https://www.tiktok.com/@giddyforex" target="_blank">
+                                <i class="fab fa-tiktok"></i>
+                            </a>
+                            <a href="https://www.youtube.com/@Giddy_Forex" target="_blank">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                            <a href="mailto:giddyfxm@gmail.com">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 mb-5 fade-in">
+                    <div class="footer-widget">
+                        <h4>Contact Info</h4>
+                        <div class="contact-info">
+                            <p class="mb-3">
+                                <i class="fa fa-map-marker-alt text-white mr-3"></i>
+                                Kampala, Uganda
+                            </p>
+                            <p class="mb-3">
+                                <i class="fa fa-phone-alt text-white mr-3"></i>
+                                <a href="https://wa.me/256774482267" class="text-light">+256 774 482267</a>
+                            </p>
+                            <p class="mb-3">
+                                <i class="fa fa-envelope text-white mr-3"></i>
+                                <a href="mailto:giddyfxm@gmail.com" class="text-light">giddyfxm@gmail.com</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 mb-5 fade-in">
+                    <div class="footer-widget">
+                        <h4>Quick Links</h4>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><a href="#home" class="text-light">Home</a></li>
+                            <li class="mb-2"><a href="#about" class="text-light">About</a></li>
+                            <li class="mb-2"><a href="#mentorship" class="text-light">Mentorship</a></li>
+                            <li class="mb-2"><a href="#signals" class="text-light">Signals</a></li>
+                            <li class="mb-2"><a href="#reviews" class="text-light">Reviews</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="col-lg-2 mb-5 fade-in">
+                    <div class="footer-widget">
+                        <h4>Resources</h4>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><a href="https://t.me/blendergiddy" class="text-light" target="_blank">Telegram</a></li>
+                            <li class="mb-2"><a href="https://discord.gg/CDYqGgx4Gu" class="text-light" target="_blank">Discord</a></li>
+                            <li class="mb-2"><a href="https://www.youtube.com/@Giddy_Forex" class="text-light" target="_blank">YouTube</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <hr style="border-color: rgba(255, 255, 255, 0.1); margin: 50px 0 30px;">
+            
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="mb-0 text-light">&copy; 2025 Giddy Forex Academy. All Rights Reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-right">
+                    <p class="mb-0 text-light">
+                        Developed by <a href="mailto:muhirejeanleonard2@gmail.com" class="text-white">MJL company(Whatsapp us:+250791725380)</a>
+                        +250791725380
+                    </p>
+                </div>
+            </div>
+            
+            <div class="text-center mt-4">
+                <p class="text-light small">
+                    <strong>Risk Disclaimer:</strong> Trading involves substantial risk and may not be suitable for every investor. 
+                    Past performance is not indicative of future results. Ensure you fully understand the risks involved 
+                    and seek independent advice if necessary.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        // Loading Screen
+        window.addEventListener('load', function() {
+            setTimeout(() => {
+                document.getElementById('loadingOverlay').style.opacity = '0';
+                setTimeout(() => {
+                    document.getElementById('loadingOverlay').style.display = 'none';
+                }, 500);
+            }, 1500);
+        });
+
+        // Smooth Scroll for Navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Navbar Scroll Effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar-glass');
+            if (window.scrollY > 100) {
+                navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+                navbar.style.boxShadow = '0 10px 40px rgba(0, 0, 0, 0.15)';
+            } else {
+                navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+                navbar.style.boxShadow = '0 8px 32px rgba(0, 0, 0, 0.1)';
+            }
+        });
+
+        // Intersection Observer for Animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Stats Counter Animation
+        function animateStats() {
+            const stats = document.querySelectorAll('[data-count]');
+            stats.forEach(stat => {
+                const target = parseInt(stat.getAttribute('data-count'));
+                const increment = target / 100;
+                let current = 0;
+                
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        stat.textContent = target + (stat.textContent.includes('%') ? '%' : '');
+                        clearInterval(timer);
+                    } else {
+                        stat.textContent = Math.floor(current) + (stat.textContent.includes('%') ? '%' : '');
+                    }
+                }, 20);
+            });
+        }
+
+        // Trigger stats animation when in view
+        const statsSection = document.querySelector('.stats-section');
+        const statsObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateStats();
+                    statsObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        if (statsSection) {
+            statsObserver.observe(statsSection);
+        }
+
+        // Enhanced WhatsApp Chat
+        document.addEventListener("DOMContentLoaded", function () {
+            const chatButton = document.querySelector(".whatsapp-chat");
+            const chatBox = document.getElementById("chatBox");
+            const closeChat = document.getElementById("closeChat");
+            const sendChat = document.getElementById("sendChat");
+            const chatInput = document.getElementById("chatInput");
+            const quickReplies = document.querySelectorAll('.quick-reply');
+
+            // Show chat box
+            chatButton.addEventListener("click", function () {
+                chatBox.style.display = "flex";
+                chatBox.style.animation = "slideInUp 0.3s ease";
+            });
+
+            // Close chat box
+            closeChat.addEventListener("click", function () {
+                chatBox.style.animation = "slideOutDown 0.3s ease";
+                setTimeout(() => {
+                    chatBox.style.display = "none";
+                }, 300);
+            });
+
+            // Quick reply buttons
+            quickReplies.forEach(button => {
+                button.addEventListener('click', function() {
+                    const message = this.getAttribute('data-message');
+                    sendWhatsAppMessage(message);
+                });
+            });
+
+            // Send message via WhatsApp
+            function sendWhatsAppMessage(message) {
+                const phoneNumber = "256774482267";
+                window.open(`https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(message)}`, "_blank");
+                chatBox.style.display = "none";
+            }
+
+            sendChat.addEventListener("click", function () {
+                const message = chatInput.value.trim();
+                if (message !== "") {
+                    sendWhatsAppMessage(message);
+                    chatInput.value = "";
+                }
+            });
+
+            // Enter key support
+            chatInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    sendChat.click();
+                }
+            });
+        });
+
+        // Portfolio Filter
+        document.querySelectorAll('[data-filter]').forEach(button => {
+            button.addEventListener('click', function() {
+                // Remove active class from all buttons
+                document.querySelectorAll('[data-filter]').forEach(btn => btn.classList.remove('active'));
+                // Add active class to clicked button
+                this.classList.add('active');
+                
+                const filter = this.getAttribute('data-filter');
+                const items = document.querySelectorAll('.portfolio-item');
+                
+                items.forEach(item => {
+                    if (filter === '*' || item.classList.contains(filter.substring(1))) {
+                        item.style.display = 'block';
+                        item.style.animation = 'fadeIn 0.5s ease';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Parallax Effect
+        window.addEventListener('scroll', function() {
+            const scrolled = window.pageYOffset;
+            const shapes = document.querySelectorAll('.shape');
+            
+            shapes.forEach((shape, index) => {
+                const speed = (index + 1) * 0.5;
+                shape.style.transform = `translateY(${scrolled * speed}px)`;
+            });
+        });
+
+        // Add fade-in animations with CSS
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fadeIn {
+                from { opacity: 0; transform: translateY(30px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+
+            @keyframes slideInUp {
+                from { opacity: 0; transform: translateY(60px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+
+            @keyframes slideInRight {
+                from { opacity: 0; transform: translateX(60px); }
+                to { opacity: 1; transform: translateX(0); }
+            }
+
+            @keyframes slideOutDown {
+                from { opacity: 1; transform: translateY(0); }
+                to { opacity: 0; transform: translateY(20px); }
+            }
+
+            .fade-in.visible {
+                animation: fadeIn 0.8s ease forwards;
+            }
+
+            /* Additional Mobile Responsiveness */
+            @media (max-width: 768px) {
+                .hero-title {
+                    font-size: 2.2rem;
+                }
+                
+                .section-title {
+                    font-size: 2rem;
+                }
+                
+                .pricing-card {
+                    margin-bottom: 20px;
+                }
+                
+                .join-btn {
+                    width: 100%;
+                    justify-content: center;
+                    margin-bottom: 15px;
+                }
+                
+                .whatsapp-chat {
+                    bottom: 20px;
+                    right: 20px;
+                    width: 50px;
+                    height: 50px;
+                }
+                
+                .chat-box {
+                    width: calc(100vw - 40px);
+                    right: 20px;
+                    left: 20px;
+                }
+                
+                .feature-card {
+                    padding: 25px 20px;
+                }
+                
+                .pricing-card {
+                    padding: 30px 20px;
+                }
+            }
+
+            @media (max-width: 576px) {
+                .hero-title {
+                    font-size: 1.8rem;
+                }
+                
+                .hero-subtitle {
+                    font-size: 1rem;
+                }
+                
+                .cta-button {
+                    padding: 12px 25px;
+                    font-size: 1rem;
+                }
+                
+                .price-circle {
+                    width: 100px;
+                    height: 100px;
+                }
+                
+                .price-new {
+                    font-size: 2rem;
+                }
+            }
+
+            /* Advanced Hover Effects */
+            .pricing-card {
+                background: rgba(255, 255, 255, 0.05);
+                backdrop-filter: blur(20px);
+                border: 1px solid rgba(255, 255, 255, 0.1);
+                position: relative;
+                overflow: hidden;
+            }
+
+            .pricing-card::after {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: -100%;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+                transition: left 0.8s;
+            }
+
+            .pricing-card:hover::after {
+                left: 100%;
+            }
+
+            /* Floating Action Buttons */
+            .floating-actions {
+                position: fixed;
+                bottom: 120px;
+                right: 30px;
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+                z-index: 998;
+            }
+
+            .floating-btn {
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: white;
+                text-decoration: none;
+                transition: all 0.3s ease;
+                box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            }
+
+            .floating-btn:hover {
+                transform: scale(1.1);
+                color: white;
+                text-decoration: none;
+            }
+
+            .floating-btn.telegram {
+                background: linear-gradient(135deg, #0088cc, #229ed9);
+            }
+
+            .floating-btn.youtube {
+                background: linear-gradient(135deg, #ff0000, #ff4444);
+            }
+
+            /* Custom Scrollbar */
+            ::-webkit-scrollbar {
+                width: 8px;
+            }
+
+            ::-webkit-scrollbar-track {
+                background: #f1f1f1;
+            }
+
+            ::-webkit-scrollbar-thumb {
+                background: var(--gradient-primary);
+                border-radius: 10px;
+            }
+
+            ::-webkit-scrollbar-thumb:hover {
+                background: var(--accent-color);
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Add floating action buttons
+        const floatingActions = document.createElement('div');
+        floatingActions.className = 'floating-actions';
+        floatingActions.innerHTML = `
+            <a href="https://t.me/blendergiddy" target="_blank" class="floating-btn telegram" title="Join Telegram">
+                <i class="fab fa-telegram-plane"></i>
+            </a>
+            <a href="https://www.youtube.com/@Giddy_Forex" target="_blank" class="floating-btn youtube" title="YouTube Channel">
+                <i class="fab fa-youtube"></i>
+            </a>
+        `;
+        document.body.appendChild(floatingActions);
+
+        // Add typing effect to hero title
+        function typeWriter(element, text, speed = 100) {
+            let i = 0;
+            element.innerHTML = '';
+            
+            function type() {
+                if (i < text.length) {
+                    element.innerHTML += text.charAt(i);
+                    i++;
+                    setTimeout(type, speed);
+                }
+            }
+            
+            setTimeout(type, 1000);
+        }
+
+        // Initialize typing effect after loading
+        setTimeout(() => {
+            const heroTitle = document.querySelector('.hero-title');
+            if (heroTitle) {
+                const originalText = heroTitle.textContent;
+                typeWriter(heroTitle, originalText, 80);
+            }
+        }, 2000);
+
+        // Add particle system for hero background
+        function createParticle() {
+            const particle = document.createElement('div');
+            particle.style.cssText = `
+                position: absolute;
+                width: 4px;
+                height: 4px;
+                background: rgba(0, 212, 170, 0.5);
+                border-radius: 50%;
+                pointer-events: none;
+                left: ${Math.random() * 100}%;
+                top: 100%;
+                animation: particleFloat ${5 + Math.random() * 10}s linear infinite;
+            `;
+            
+            document.querySelector('.floating-shapes').appendChild(particle);
+            
+            setTimeout(() => {
+                particle.remove();
+            }, 15000);
+        }
+
+        // Create particles periodically
+        setInterval(createParticle, 3000);
+
+        // Add particle float animation
+        const particleStyle = document.createElement('style');
+        particleStyle.textContent = `
+            @keyframes particleFloat {
+                0% {
+                    transform: translateY(0) rotate(0deg);
+                    opacity: 0;
+                }
+                10% {
+                    opacity: 1;
+                }
+                90% {
+                    opacity: 1;
+                }
+                100% {
+                    transform: translateY(-100vh) rotate(360deg);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(particleStyle);
+
+        // Enhanced form validation and UX
+        document.getElementById('chatInput').addEventListener('input', function() {
+            const sendBtn = document.getElementById('sendChat');
+            if (this.value.trim()) {
+                sendBtn.style.background = 'var(--gradient-primary)';
+                sendBtn.style.transform = 'scale(1.05)';
+            } else {
+                sendBtn.style.background = '#ccc';
+                sendBtn.style.transform = 'scale(1)';
+            }
+        });
+
+        // Add custom cursor for interactive elements
+        document.querySelectorAll('.btn, .nav-link, .portfolio-item, .whatsapp-chat, .join-btn').forEach(el => {
+            el.style.cursor = 'pointer';
+        });
+
+        // Preload images for better performance
+        const imageUrls = [
+            'img/other/1.png',
+            'img/other/about2.jpeg',
+            'img/reviews/cer.jpeg',
+            'img/reviews/pay1.jpeg',
+            'img/reviews/jo.jpeg',
+            'img/reviews/vip3.jpeg',
+            'img/reviews/vip2.jpeg',
+            'img/reviews/vip.jpeg'
+        ];
+
+        imageUrls.forEach(url => {
+            const img = new Image();
+            img.src = url;
+        });
+
+        // Add success message for form submissions
+        function showSuccessMessage(message) {
+            const toast = document.createElement('div');
+            toast.style.cssText = `
+                position: fixed;
+                top: 100px;
+                right: 20px;
+                background: var(--gradient-primary);
+                color: white;
+                padding: 15px 25px;
+                border-radius: 10px;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+                z-index: 10000;
+                animation: slideInRight 0.5s ease;
+            `;
+            toast.textContent = message;
+            document.body.appendChild(toast);
+            
+            setTimeout(() => {
+                toast.style.animation = 'slideOutRight 0.5s ease';
+                setTimeout(() => toast.remove(), 500);
+            }, 3000);
+        }
+
+        // Add slide animations for toast
+        const toastStyle = document.createElement('style');
+        toastStyle.textContent = `
+            @keyframes slideInRight {
+                from { transform: translateX(100%); opacity: 0; }
+                to { transform: translateX(0); opacity: 1; }
+            }
+            
+            @keyframes slideOutRight {
+                from { transform: translateX(0); opacity: 1; }
+                to { transform: translateX(100%); opacity: 0; }
+            }
+        `;
+        document.head.appendChild(toastStyle);
+    </script>
+</body>
+
+</html>
